@@ -1,0 +1,23 @@
+{
+  "name": "timer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bintangparama/timer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bintangparama/timer/issues"
+  },
+  "homepage": "https://github.com/bintangparama/timer",
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
