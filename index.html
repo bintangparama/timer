@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Timer</title>
+
+	<style>
+		* {
+			margin: 0;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		}
+		body {
+			width: 100vw;
+			height: 100vh;
+			flex-direction: column;
+		}
+
+		.flex {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
+
+		#toolbar {
+			width: 100vw;
+			height: 10vw;
+		}
+
+		#time {
+			width: 100vw;
+			height: 90vh;
+		}
+		button {
+			height: 75%;
+			width: 25%;
+			border-radius: 10%/30%;
+		}
+	</style>
+</head>
+<body class="flex">
+	<div id="toolbar" class="flex">
+		<button onclick="time = 0;timeelement.innerHTML = (time/100).toString();">Reset</button>
+		<button onclick="pause();inpause=true;">pause</button>
+	</div>
+	<div id="time" class="flex"  style="font-size: 10vmin;">0.00</div>
+
+	<script>
+		var time = 0;
+		var intervalid = 0;
+		var inpause  = false;
+		var timeelement = document.querySelector('div')
+		timeelement = document.querySelector('div#time');
+
+		timeelement.addEventListener('mousedown',onClick)
+		timeelement.addEventListener('touchend', onClick)
+
+		function onClick(e) {
+			if (time == 0) {
+
+				intervalid = setInterval(() => {
+					time++;
+					timeelement.innerHTML = (time/100).toString();
+				},10);
+			} else if (inpause) {
+				intervalid = setInterval(() => {
+					time++;
+					timeelement.innerHTML = (time / 100).toString();
+				}, 10);
+				inpause=false;
+			} else {
+
+				pause();
+				time =  0;
+			}
+		}
+
+		function pause() {
+			clearInterval(intervalid)
+		}
+	</script>
+</body>
+</html>
